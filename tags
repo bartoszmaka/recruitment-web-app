@@ -8,12 +8,22 @@ ApplicationMailer	/home/bartosz/projekty/recruitment-web-app/app/mailers/applica
 ApplicationRecord	/home/bartosz/projekty/recruitment-web-app/app/models/application_record.rb	/^class ApplicationRecord < ActiveRecord::Base$/;"	c	language:Ruby
 Channel	/home/bartosz/projekty/recruitment-web-app/app/channels/application_cable/channel.rb	/^  class Channel < ActionCable::Channel::Base$/;"	c	language:Ruby	module:ApplicationCable
 Connection	/home/bartosz/projekty/recruitment-web-app/app/channels/application_cable/connection.rb	/^  class Connection < ActionCable::Connection::Base$/;"	c	language:Ruby	module:ApplicationCable
+DeviseCreateUsers	/home/bartosz/projekty/recruitment-web-app/db/migrate/20170713112828_devise_create_users.rb	/^class DeviseCreateUsers < ActiveRecord::Migration[5.1]$/;"	c	language:Ruby
 RecruitmentWebApp	/home/bartosz/projekty/recruitment-web-app/config/application.rb	/^module RecruitmentWebApp$/;"	m	language:Ruby
 The change you wanted was rejected.	/home/bartosz/projekty/recruitment-web-app/public/422.html	/^      <h1>The change you wanted was rejected.<\/h1>$/;"	h	language:HTML
 The page you were looking for doesn't exist.	/home/bartosz/projekty/recruitment-web-app/public/404.html	/^      <h1>The page you were looking for doesn't exist.<\/h1>$/;"	h	language:HTML
+User	/home/bartosz/projekty/recruitment-web-app/app/models/user.rb	/^class User < ApplicationRecord$/;"	c	language:Ruby
+User, type: :model	/home/bartosz/projekty/recruitment-web-app/spec/models/user_spec.rb	/^RSpec.describe User, type: :model do$/;"	d	language:RSpec
+UsersController	/home/bartosz/projekty/recruitment-web-app/app/controllers/users_controller.rb	/^class UsersController < ApplicationController$/;"	c	language:Ruby
+UsersController, type: :controller	/home/bartosz/projekty/recruitment-web-app/spec/controllers/users_controller_spec.rb	/^RSpec.describe UsersController, type: :controller do$/;"	d	language:RSpec
 We're sorry, but something went wrong.	/home/bartosz/projekty/recruitment-web-app/public/500.html	/^      <h1>We're sorry, but something went wrong.<\/h1>$/;"	h	language:HTML
+change	/home/bartosz/projekty/recruitment-web-app/db/migrate/20170713112828_devise_create_users.rb	/^  def change$/;"	f	language:Ruby	class:DeviseCreateUsers
 dependencies	/home/bartosz/projekty/recruitment-web-app/package.json	/^  "dependencies": {}$/;"	o	language:JSON
+index	/home/bartosz/projekty/recruitment-web-app/app/controllers/users_controller.rb	/^  def index$/;"	f	language:Ruby	class:UsersController
 name	/home/bartosz/projekty/recruitment-web-app/package.json	/^  "name": "recruitment-web-app",$/;"	s	language:JSON
 private	/home/bartosz/projekty/recruitment-web-app/package.json	/^  "private": true,$/;"	b	language:JSON
 system!	/home/bartosz/projekty/recruitment-web-app/bin/setup	/^def system!(*args)$/;"	f	language:Ruby
 system!	/home/bartosz/projekty/recruitment-web-app/bin/update	/^def system!(*args)$/;"	f	language:Ruby
+user is authenticated	/home/bartosz/projekty/recruitment-web-app/spec/controllers/users_controller_spec.rb	/^  context 'user is authenticated' do$/;"	c	language:RSpec
+user is not authenticated	/home/bartosz/projekty/recruitment-web-app/spec/controllers/users_controller_spec.rb	/^  context 'user is not authenticated' do$/;"	c	language:RSpec
+validations	/home/bartosz/projekty/recruitment-web-app/spec/models/user_spec.rb	/^  context 'validations' do$/;"	c	language:RSpec
