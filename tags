@@ -1,3 +1,5 @@
+Ability	/home/bartosz/projekty/recruitment-web-app/app/models/ability.rb	/^class Ability$/;"	c	language:Ruby
+AddAdminColumnToUsers	/home/bartosz/projekty/recruitment-web-app/db/migrate/20170713135755_add_admin_column_to_users.rb	/^class AddAdminColumnToUsers < ActiveRecord::Migration[5.1]$/;"	c	language:Ruby
 Application	/home/bartosz/projekty/recruitment-web-app/config/application.rb	/^  class Application < Rails::Application$/;"	c	language:Ruby	module:RecruitmentWebApp
 ApplicationCable	/home/bartosz/projekty/recruitment-web-app/app/channels/application_cable/channel.rb	/^module ApplicationCable$/;"	m	language:Ruby
 ApplicationCable	/home/bartosz/projekty/recruitment-web-app/app/channels/application_cable/connection.rb	/^module ApplicationCable$/;"	m	language:Ruby
@@ -18,8 +20,10 @@ UsersController	/home/bartosz/projekty/recruitment-web-app/app/controllers/users
 UsersController, type: :controller	/home/bartosz/projekty/recruitment-web-app/spec/controllers/users_controller_spec.rb	/^RSpec.describe UsersController, type: :controller do$/;"	d	language:RSpec
 We're sorry, but something went wrong.	/home/bartosz/projekty/recruitment-web-app/public/500.html	/^      <h1>We're sorry, but something went wrong.<\/h1>$/;"	h	language:HTML
 change	/home/bartosz/projekty/recruitment-web-app/db/migrate/20170713112828_devise_create_users.rb	/^  def change$/;"	f	language:Ruby	class:DeviseCreateUsers
+change	/home/bartosz/projekty/recruitment-web-app/db/migrate/20170713135755_add_admin_column_to_users.rb	/^  def change$/;"	f	language:Ruby	class:AddAdminColumnToUsers
 dependencies	/home/bartosz/projekty/recruitment-web-app/package.json	/^  "dependencies": {}$/;"	o	language:JSON
 index	/home/bartosz/projekty/recruitment-web-app/app/controllers/users_controller.rb	/^  def index$/;"	f	language:Ruby	class:UsersController
+initialize	/home/bartosz/projekty/recruitment-web-app/app/models/ability.rb	/^  def initialize(user)$/;"	f	language:Ruby	class:Ability
 name	/home/bartosz/projekty/recruitment-web-app/package.json	/^  "name": "recruitment-web-app",$/;"	s	language:JSON
 private	/home/bartosz/projekty/recruitment-web-app/package.json	/^  "private": true,$/;"	b	language:JSON
 system!	/home/bartosz/projekty/recruitment-web-app/bin/setup	/^def system!(*args)$/;"	f	language:Ruby
