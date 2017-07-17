@@ -1,9 +1,5 @@
 class Interest < ApplicationRecord
-  has_many :user_interests, dependent: :destroy
-  has_many :users, through: :user_interests
+  belongs_to :user
 
-  validates :name, presence: true,
-                   uniqueness: { case_sensitive: false }
-
-  before_save { name.downcase! }
+  validates :name, presence: true
 end

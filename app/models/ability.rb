@@ -8,5 +8,6 @@ class Ability
         target_user.id != user.id
       end
     end
+    can :read, User if user.persisted?
   end
 end
