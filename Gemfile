@@ -7,6 +7,7 @@ end
 
 gem 'bootstrap-sass', '3.3.6'
 gem 'cancan'
+gem 'cocoon'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'jbuilder', '~> 2.5'

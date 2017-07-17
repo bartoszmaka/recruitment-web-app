@@ -5,15 +5,16 @@ table.table
     th gender
     th age
     th interests
+    th actions
   - @users.each do |user|
     tr
-      td
-        = user.email
-        - if can? :destroy, user
-           =< link_to user_path(user), method: :delete do
-            span.glyphicon.glyphicon-trash
+      td = user.email
       td = user.gender
       td = user.age
       td :ul
-        - user.interests.each do |interest|
-          li = interest.name
+        - user.interests.order(:interest_type).each do |interest|
+          li = "#{interest.interest_type} - #{interest.name}"
+      td
+        - if can? :destroy, user
+           =< link_to user_path(user), method: :delete do
+            span.glyphicon.glyphicon-trash

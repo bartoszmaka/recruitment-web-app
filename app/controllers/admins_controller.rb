@@ -1,9 +1,6 @@
 class AdminsController < ApplicationController
   def index
-    if can? :manage, User
-      @users = User.all
-    else
-      redirect_to root_path
-    end
+    authorize! :manage, User
+    @users = User.all
   end
 end
