@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[index destroy]
 
+  resources :admins, only: :index, path: 'admin_panel'
+
   root 'users#index'
 end
