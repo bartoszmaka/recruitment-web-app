@@ -1,0 +1,19 @@
+= render 'form_errors'
+= form_for @user do |f|
+  = f.label :email
+  = f.email_field :email
+  br
+  = f.label :age
+  = f.number_field :age, in: 0..100
+  br
+  = f.label :gender
+  = f.select :gender, options_for_select(User.genders.keys.map { |x| [x.humanize, x] })
+  br
+
+  #tasks
+    = f.fields_for :interests do |interest|
+      = render 'interest_fields', f: interest
+    .links
+      = link_to_add_association 'add interest', f, :interests
+
+  = f.submit 'Save'
