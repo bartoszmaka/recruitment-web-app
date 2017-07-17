@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    redirect_to root_path
   end
 
   def edit
@@ -44,7 +43,6 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-    redirect_to root_path
   end
 
   private
