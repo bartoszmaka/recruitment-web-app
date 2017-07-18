@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
-
   def index
     authorize! :index, User
     @users = User.all
+    respond_to do |format|
+      format.html { render 'index' }
+      format.csv do
+        authorize! :download_csv, User
+        send_data CsvParser.new(@users).parsed_data
+      end
+    end
   end
 
   def destroy
