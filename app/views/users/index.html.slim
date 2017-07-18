@@ -1,4 +1,6 @@
 h2 List of users
+- if can? :download_csv, User
+  = link_to 'Export to CSV', users_path(format: :csv)
 table.table
   tr
     th email

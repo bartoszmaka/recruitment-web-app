@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AdminsController, type: :controller do
-  let(:admin) { User.create(email: 'admin@rspec.com', password: 'rspec12', admin: true) }
-  let(:user) { User.create(email: 'user@rspec.com', password: 'rspec12') }
+  let(:admin) { User.create(email: 'admin@rspec.com', password: 'rspec12', admin: true, gender: 'female', age: 11) }
+  let(:user) { User.create(email: 'user@rspec.com', password: 'rspec12', gender: 'female', age: 11) }
 
   describe 'get #index' do
     context 'user is an admin' do
