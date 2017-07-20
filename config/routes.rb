@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   resources :admins, only: :index, path: 'admin_panel'
 
+  resources :regards, only: :create
+
   root 'users#index'
 end
