@@ -3,6 +3,6 @@
   = f.text_field :name
   br
   = f.label :type
-  = f.select :interest_type, options_for_select(Interest.interest_types.keys.map { |x| [x.humanize, x] })
+  = f.select :interest_type, options_for_select(parsed_interest_types, f.object.interest_type)
   br
   = link_to_remove_association 'remove interest', f
