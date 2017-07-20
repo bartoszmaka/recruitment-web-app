@@ -51,12 +51,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def send_regards
-  #   @user = User.find(params[:id])
-  #   UserMailer.sample_email(current_user, @user).deliver
-  #   redirect_to 'root_path'
-  # end
-
   private
 
   def user_params

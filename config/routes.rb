@@ -7,9 +7,5 @@ Rails.application.routes.draw do
 
   resources :regards, only: :create
 
-  # post '/regards/:id', to: 'regards#create', as: :regards
-
-  # get 'send_regards/:id', to: 'users#send_regards', as: :send_regards
-
   root 'users#index'
 end
