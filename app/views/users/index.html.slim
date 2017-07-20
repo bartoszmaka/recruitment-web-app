@@ -1,4 +1,5 @@
 h2 List of users
+= render 'search_form'
 - if can? :download_csv, User
   = link_to 'Export to CSV', users_path(format: :csv)
 table.table

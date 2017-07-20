@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def index
     authorize! :index, User
-    @users = User.all
+    @q = User.ransack(params[:q])
+    @users = @q.result
     respond_to do |format|
       format.html { render 'index' }
       format.csv do
