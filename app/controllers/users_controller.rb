@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       format.html { render 'index' }
       format.csv do
         authorize! :download_csv, User
-        send_data CsvParser.new(@users).parsed_data
+        send_data CsvParser.execute(@users)
       end
     end
   end

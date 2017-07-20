@@ -1,4 +1,6 @@
 class RegardsSender
+  include Service
+
   def initialize(current_user, target_user_id)
     @current_user = current_user
     @target_user_id = target_user_id

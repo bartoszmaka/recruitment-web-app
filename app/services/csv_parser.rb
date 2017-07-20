@@ -1,6 +1,8 @@
 require 'csv'
 
 class CsvParser
+  include Service
+
   def initialize(users)
     @users = users
     @user_fields = %w[email age gender]
@@ -8,7 +10,7 @@ class CsvParser
     @width = biggest_amount_of_children
   end
 
-  def parsed_data
+  def execute
     CSV.generate(headers: true) do |csv|
       csv << parsed_header
       @users.each do |user|
