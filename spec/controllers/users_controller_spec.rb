@@ -3,23 +3,36 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   let(:admin) { User.create(email: 'admin@rspec.com', password: 'rspec12', admin: true, age: 1, gender: 'male') }
   let(:user) { User.create(email: 'rspec@rspec.com', password: 'rspec12', age: 1, gender: 'male') }
-  let(:other_user) { User.create(email: 'rails@rspec.com', password: 'rails12', age: 1, gender: 'male') }
   let(:user_attributes) { { email: 'newuser@rspec.com', password: 'rspec12', age: 2, gender: 'female' } }
 
   describe 'get #index' do
     context 'user is authenticated' do
-      before(:each) do
-        sign_in user
-        get :index
+      before(:each) { sign_in admin }
+
+      context 'format is csv' do
+        before(:each) do
+          allow(CsvParser).to receive(:execute)
+          get :index, format: :csv
+        end
+
+        it 'calls CsvParser service' do
+          expect(CsvParser).to have_received(:execute)
+        end
       end
 
-      it 'assigns users' do
-        expect(assigns(:users)).to match([user, other_user])
-      end
+      context 'format is html' do
+        before(:each) do
+          get :index
+        end
 
-      it 'renders index template' do
-        expect(response).to have_http_status(:ok)
-        expect(response).to render_template(:index)
+        it 'assigns users' do
+          expect(assigns(:users)).to contain_exactly(user, admin)
+        end
+
+        it 'renders index template' do
+          expect(response).to have_http_status(:ok)
+          expect(response).to render_template(:index)
+        end
       end
     end
 
