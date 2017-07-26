@@ -2,12 +2,12 @@ class RegardsSender
   include Service
 
   def initialize(current_user, target_user_id)
-    @current_user = current_user
+    @sender_user = current_user
     @target_user_id = target_user_id
   end
 
   def execute
-    parse_regards_params
+    parse_target_user
     return false unless users_valid?
     send_email
     true
@@ -15,14 +15,13 @@ class RegardsSender
 
   private
 
-  attr_accessor :sender_user, :target_user, :current_user, :target_user_id
+  attr_accessor :sender_user, :target_user, :target_user_id
 
   def users_valid?
-    current_user && target_user
+    sender_user && target_user
   end
 
-  def parse_regards_params
-    self.sender_user = current_user
+  def parse_target_user
     self.target_user = User.find_by(id: target_user_id)
   end
 
