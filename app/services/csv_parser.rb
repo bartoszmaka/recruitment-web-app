@@ -1,6 +1,8 @@
 require 'csv'
 
 class CsvParser
+  include Service
+
   def initialize(users)
     @users = users
     @user_fields = %w[email age gender]
@@ -8,10 +10,10 @@ class CsvParser
     @width = biggest_amount_of_children
   end
 
-  def parsed_data
+  def execute
     CSV.generate(headers: true) do |csv|
       csv << parsed_header
-      @users.each do |user|
+      @users&.each do |user|
         row = user.attributes.slice(*@user_fields).values
         row += user.interests.map { |interest| interest.slice(*@interest_fields).values }
         csv << row.flatten
@@ -22,6 +24,8 @@ class CsvParser
   private
 
   def biggest_amount_of_children
+    return 0 if @users.nil?
+    return 1 unless @users.is_a? Array
     @users.left_joins(:interests).group(:id).order('COUNT(interests.id) DESC').limit(1).first.interests.count
   end
 

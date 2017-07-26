@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       format.html { render 'index' }
       format.csv do
         authorize! :download_csv, User
-        send_data CsvParser.new(@users).parsed_data
+        send_data CsvParser.execute(@users)
       end
     end
   end
@@ -27,8 +27,7 @@ class UsersController < ApplicationController
 
   def create
     authorize! :create, User
-    set_default_password
-    @user = User.create(user_params)
+    @user = User.create(user_params.merge(password: 'secret'))
     if @user.save
       redirect_to admins_path
     else
@@ -43,7 +42,6 @@ class UsersController < ApplicationController
 
   def update
     authorize! :update, User
-    ignore_password
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to admins_path
@@ -56,18 +54,8 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :email, :password, :password_confirmation, :age, :gender,
+      :email, :age, :gender,
       interests_attributes: [:id, :_destroy, :name, :interest_type]
     )
-  end
-
-  def set_default_password
-    params[:user][:password] = 'secret'
-    params[:user][:password_confirmation] = 'secret'
-  end
-
-  def ignore_password
-    params[:user].delete(:password)
-    params[:user].delete(:password_confirmation)
   end
 end
